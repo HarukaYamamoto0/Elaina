@@ -1,7 +1,7 @@
 const { Client, Collection } = require("discord.js");
 const plugins = require("../utils/main.js");
 
-class Harumi extends Client {
+class Elaina extends Client {
   constructor(options) {
     super(options);
     this.commands = new Collection();
@@ -15,4 +15,4 @@ class Harumi extends Client {
   }
 }
 
-module.exports = { Harumi };
+module.exports = { Elaina };

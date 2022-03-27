@@ -8,11 +8,12 @@ module.exports = {
     const folders = await readdirSync("./src/commands/");
 
     for (const folder of folders) {
-      const commands = readdirSync(`./src/commands/${folder}`);
+      const commands = readdirSync(`./src/commands/${folder}/`);
 
       for (const file of commands) {
-        const command = new (require(`./commands/${folder}/${file}`))();
+        const command = new (require(`./commands/${folder}/${file}`));
         const cmdName = file.split(".")[0];
+        command.category = folder;
 
         client.commands.set(cmdName, command);
         allCommands.push(command.data.toJSON());
