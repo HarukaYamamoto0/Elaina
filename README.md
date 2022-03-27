@@ -34,5 +34,6 @@ $ cd Elaina
 # Instale as dependências
 $ npm install
 
-# Caso você tenha feito todo certo, o bot irá iniciar
+# Caso você tenha feito todo certo inicie o bot
+$ npm start
 ```
