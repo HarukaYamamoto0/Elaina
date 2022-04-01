@@ -1,4 +1,5 @@
 module.exports = async (client, interaction) => {
+  if (!interaction.guild) return interaction.reply("¯\\_(ツ)\_/¯");
   const { user: author, guild } = interaction;
   const { User, Guild } = client.models;
 

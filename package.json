@@ -1,7 +1,7 @@
 {
   "name": "Harumi",
   "description": "just a simple bot in slash",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index.js"
