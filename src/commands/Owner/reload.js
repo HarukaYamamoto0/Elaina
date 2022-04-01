@@ -1,19 +1,19 @@
-/* eslint-disable max-len */
-
 const { Command, builder } = require("../../utils/modules/Command.js");
-const { getter } = require("../../utils/modules/emojis.js");
 
 class Reload extends Command {
   constructor() {
     super();
     this.data = new builder()
       .setName("reload")
-      .setDescription("Recarregue um comando")
+      .setDescription("Recarregue todos os comandos ou eventos")
       .addStringOption((option) =>
         option
-          .setName("comando")
-          .setDescription("Nome do comando")
+          .setName("tipo")
+          .setDescription("Se e os comandos ou eventos")
           .setRequired(true)
+          .addChoice("comandos", "command")
+          .addChoice("eventos", "event")
+          .addChoice("todos", "all")
       );
   }
 
@@ -23,37 +23,26 @@ class Reload extends Command {
         content: "Você não tem permissão de executar esse comando!",
         ephemeral: true,
       });
-    
-    const commandName = interaction.options.getString("comando");
-    const command = client.commands.get(commandName);
-    const Emojis = new getter(client);
 
-    if (!command)
-      return interaction.reply(
-        `${Emojis.get("wrong")}│O comando __**${
-          commandName
-        }**__ não foi encontrado!`
-      );
+    const type = interaction.options.getString("tipo");
+    const fileLoader = require("../../fileLoader.js");
 
-    const path = `../../commands/${command.category}/${commandName}`;
-
-    try {
-      delete require.cache[require.resolve(path)];
-      client.commands.delete(commandName);
-
-      const newCommand = new (require(path))();
-      newCommand.category = command.category;
-      client.commands.set(commandName, newCommand);
-
-      interaction.reply(
-        `${Emojis.get("right")}│O comando **${
-          commandName
-        }** foi recarregado com sucesso!`
-      );
-    } catch (err) {
-      console.log(err);
+    if (type === "all") {
+      await fileLoader.loadAll(client);
       interaction.reply({
-        content: err.message,
+        content: "Todos os comandos e eventos foram recarregados.",
+        ephemeral: true,
+      });
+    } else if (type === "command") {
+      await fileLoader.loadCommands(client);
+      interaction.reply({
+        content: "Todos os comandos foram recarregados.",
+        ephemeral: true,
+      });
+    } else {
+      await fileLoader.loadEvents(client);
+      interaction.reply({
+        content: "Todos os eventos foram recarregados.",
         ephemeral: true,
       });
     }
