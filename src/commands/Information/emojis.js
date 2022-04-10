@@ -18,7 +18,7 @@ class Emojis extends Command {
   }
 
   async code(client, interaction) {
-    const reg = /:[a-z_0-9]{1,18}:/g;
+    const reg = /:[a-zA-Z_0-9]{1,18}:/g;
     const unresolvedEmoji = interaction.options.getString("emoji");
 
     if (!reg.test(unresolvedEmoji))
