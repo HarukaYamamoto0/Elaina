@@ -17,9 +17,6 @@
     "mongoose": "^6.2.8",
     "parse-ms": "^2.1.0"
   },
-  "engines": {
-    "node": "16.12.0"
-  },
   "author": "Antônio Albert antonioalbert344@gmail.com",
   "license": "MIT"
 }
