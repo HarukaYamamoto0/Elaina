@@ -8,14 +8,18 @@ class Command {
     try {
       await this.code(client, interaction, ...rest);
     } catch (err) {
-      if (interaction.replied) await interaction.deleteReply();
       await notifier(client, "Comando Com Error", err);
-      await interaction.reply({
+
+      const message = {
         content:
           "Aconteceu algum error ao tentar excutar o comando, " +
           "Tente reportar usando o comando bugreport",
         ephemeral: true,
-      });
+      };
+
+      if (interaction.deferred || interaction.replied)
+        interaction.followUp(message);
+      else interaction.reply(message);
     }
   }
 }
