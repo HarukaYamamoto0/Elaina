@@ -1,11 +1,11 @@
 <p align="center">
   <a href="https://discord.gg/EpHNSmr3F8">
-    <img src="https://imgur.com/i2kjl6E.png" height="170" width="175" alt="Harumi" />
+    <img src="https://imgur.com/i2kjl6E.png" height="170" width="175" alt="Elaina" />
   </a>
 </p>
 
 <h1 align="center">
-    <a href="https://discord.gg/EpHNSmr3F8">🤖 Harumi</a>
+    <a href="https://discord.gg/EpHNSmr3F8">🤖 Elaina</a>
 </h1>
 <p align="center">Apenas uma simples bot em slash</p>
 

@@ -1,7 +1,7 @@
 {
-  "name": "Harumi",
+  "name": "Elaina",
   "description": "just a simple bot in slash",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index.js"
@@ -18,8 +18,8 @@
     "parse-ms": "^2.1.0"
   },
   "engines": {
-    "node": "16.12.0"
+    "node": "16.x"
   },
-  "author": "Antônio Albert antonioalbert344@gmail.com",
-  "license": "MIT"
+  "author": "HarukaYamamoto0 - github",
+  "license": "Apache-2"
 }
