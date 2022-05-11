@@ -10,7 +10,7 @@ class Botinfo extends Command {
   }
 
   async code(client, interaction) {
-    const author = interaction.user;
+    const author = interaction.user || interaction.author;
     const owner = await client.users.fetch(process.env.ownerId);
     const avatar = client.user.displayAvatarURL({ dynamic: true });
 
