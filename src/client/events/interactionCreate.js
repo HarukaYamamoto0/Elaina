@@ -22,23 +22,6 @@ module.exports = async (client, interaction) => {
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
-  //~~~~~~~~~~~~~~~~~~~~~XP SYSTEM~~~~~~~~~~~~~~~~~~~~~~~//
-  const { xp, level, nextLevel } = userDoc.exp;
-  const newXp = Math.floor(Math.random() * 8) + 1;
-
-  await User.findByIdAndUpdate(user.id, {
-    "exp.xp": xp + newXp,
-  });
-
-  if (xp >= nextLevel) {
-    await User.findByIdAndUpdate(user.id, {
-      "exp.xp": 0,
-      "exp.level": level + 1,
-      "exp.nextLevel": nextLevel * level,
-    });
-  }
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
   //~~~~~~~~~~~~~~~~~BLACKLIST SYSTEM~~~~~~~~~~~~~~~~~~~~//
   const banned = await Blacklist.findById(user.id);
   if (banned)
@@ -47,6 +30,10 @@ module.exports = async (client, interaction) => {
       ephemeral: true,
     });
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+  // generate xp for user
+  const { xpGenerator } = client.Utils;
+  await xpGenerator(client, user.id);
 
   //~~~~~~~~~~~~~~~~~~IF IT IS A COMMAND~~~~~~~~~~~~~~~~~//
   if (interaction.isCommand()) {

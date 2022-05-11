@@ -21,6 +21,14 @@ class Info extends Command {
         subcommand
           .setName("server")
           .setDescription("Veja informações sobre um servidor")
+      )
+      .addSubcommand((subcommand) =>
+        subcommand
+          .setName("xp")
+          .setDescription("veja as informações do xp de um usuário")
+          .addUserOption((option) =>
+            option.setName("usuario").setDescription("usuario a ser buscado")
+          )
       );
   }
 
