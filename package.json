@@ -3,7 +3,7 @@
   "description": "just a simple bot in slash",
   "version": "1.0.6",
   "main": "./src/index.js",
-  "scripts":
+  "scripts": {
     "start": "node ./src/index.js"
   },
   "dependencies": {
