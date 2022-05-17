@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const schemaBlack = new Schema({
-  _id: { type: String, require: true },
+  _id: { type: String, required: true },
   reason: { type: String, default: "Não definido" },
   date: { type: Date, default: Date.now },
 });

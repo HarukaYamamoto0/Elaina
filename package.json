@@ -1,7 +1,7 @@
 {
   "name": "Elaina",
   "description": "just a simple bot in slash",
-  "version": "1.0.6",
+  "version": "1.1.1",
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index.js"
@@ -13,9 +13,10 @@
     "discord-api-types": "^0.30.0",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
-    "mongoose": "^6.2.8",
+    "mongoose": "^6.3.3",
     "node-fetch": "^2.6.6",
-    "parse-ms": "^2.1.0"
+    "parse-ms": "^2.1.0",
+    "yt-channel-info": "^3.0.2"
   },
   "engines": {
     "node": "16.x"
