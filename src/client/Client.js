@@ -7,6 +7,7 @@ class Elaina extends Client {
     this.commands = new Collection();
     this.subCommands = new Collection();
     this.Utils = plugins();
+    this.youtubeChannels = new Array();
   }
 
   destroy() {
